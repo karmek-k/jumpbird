@@ -14,9 +14,13 @@ config/name="jumpbird"
 run/main_scene="res://scenes/Game.tscn"
 config/icon="res://icon.png"
 
+[audio]
+
+default_bus_layout=""
+
 [display]
 
-window/size/width=450
+window/size/width=448
 
 [physics]
 
