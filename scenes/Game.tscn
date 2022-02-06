@@ -57,6 +57,9 @@ polygon = PoolVector2Array( 0, 0, 0, 600, 8, 600, 8, 0 )
 [node name="Bird" type="KinematicBody2D" parent="."]
 position = Vector2( 225, 300 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="Bird"]
 texture = ExtResource( 1 )
