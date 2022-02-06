@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal game_over
+
 export var horizontal_speed = 5
 export var jump_speed = 7
 export var gravity = 20
@@ -21,10 +23,19 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_up"):
 		velocity.y = -jump_speed
 		time_since_jump = 0
-	
+
 	velocity.x = horizontal_speed if facing_right else -horizontal_speed
 	velocity.y += gravity * delta
 
 	var collision = move_and_collide(velocity)
 	if collision:
 		handle_collision(collision)
+	if is_on_ceiling() or is_on_floor():
+		emit_signal("game_over")
+
+
+func _on_Spike_body_entered(body: Node):
+	if body != self:
+		return
+
+	emit_signal("game_over")
