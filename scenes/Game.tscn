@@ -24,7 +24,7 @@ polygon = PoolVector2Array( 0, 0, 0, 40, 24, 24, 24, 16 )
 color = Color( 0.137255, 0.137255, 0.137255, 1 )
 polygon = PoolVector2Array( 0, 0, 0, 40, 24, 24, 24, 16 )
 
-[node name="LWall" type="Area2D" parent="."]
+[node name="LWall" type="StaticBody2D" parent="."]
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
@@ -38,7 +38,7 @@ shape = SubResource( 2 )
 color = Color( 0.137255, 0.137255, 0.137255, 1 )
 polygon = PoolVector2Array( 0, 0, 0, 600, 8, 600, 8, 0 )
 
-[node name="RWall" type="Area2D" parent="."]
+[node name="RWall" type="StaticBody2D" parent="."]
 position = Vector2( 440, 0 )
 script = ExtResource( 3 )
 __meta__ = {
