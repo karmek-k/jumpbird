@@ -39,3 +39,7 @@ func _on_Spike_body_entered(body: Node):
 		return
 
 	emit_signal("game_over")
+
+
+func _on_VisibilityNotifier2D_screen_exited():
+	emit_signal("game_over")

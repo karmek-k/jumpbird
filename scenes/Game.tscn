@@ -70,5 +70,9 @@ texture = ExtResource( 1 )
 scale = Vector2( 2, 2 )
 shape = SubResource( 1 )
 
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="Bird"]
+scale = Vector2( 2, 2 )
+
 [connection signal="body_entered" from="Spike" to="Bird" method="_on_Spike_body_entered"]
 [connection signal="game_over" from="Bird" to="." method="_on_Bird_game_over"]
+[connection signal="screen_exited" from="Bird/VisibilityNotifier2D" to="Bird" method="_on_VisibilityNotifier2D_screen_exited"]
