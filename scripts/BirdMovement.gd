@@ -14,6 +14,7 @@ func handle_collision(collision: KinematicCollision2D):
 	$Sprite.flip_h = not facing_right
 
 func _ready():
+	$Sprite.flip_h = not facing_right
 	velocity = Vector2(horizontal_speed, -jump_speed)
 
 func _physics_process(delta):
