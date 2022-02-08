@@ -8,6 +8,10 @@ export var max_holes = 5
 var spike_scene = preload("res://scenes/Spike.tscn")
 
 
+func _ready():
+	randomize()
+
+
 func spike_start_pos(facing_right: bool):
 	# determine the wall the spikes should be placed on
 	if facing_right:
@@ -39,10 +43,6 @@ func make_spike_positions(facing_right: bool):
 	return spike_positions
 
 
-func _ready():
-	randomize()
-
-
 func _on_Bird_game_over():
 	get_tree().reload_current_scene()
 
@@ -55,6 +55,7 @@ func _on_Bird_wall_bumped(facing_right: bool):
 	# place spikes
 	for spike_y in make_spike_positions(facing_right):
 		var spike = spike_scene.instance()
+		spike.connect("body_entered", $Bird, "_on_Spike_body_entered")
 		spike.position.x = spike_start_pos(facing_right).position.x
 		spike.position.y = spike_y
 		
