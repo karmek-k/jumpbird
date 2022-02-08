@@ -74,6 +74,7 @@ position = Vector2( 8, 20 )
 position = Vector2( 440, 20 )
 
 [node name="HUD" parent="." instance=ExtResource( 5 )]
+anchor_bottom = 0.0
 script = ExtResource( 6 )
 
 [connection signal="game_over" from="Bird" to="." method="_on_Bird_game_over"]

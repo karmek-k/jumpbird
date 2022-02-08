@@ -21,6 +21,8 @@ default_bus_layout=""
 [display]
 
 window/size/width=448
+window/size/resizable=false
+window/handheld/orientation="portrait"
 
 [physics]
 
