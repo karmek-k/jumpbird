@@ -3,7 +3,7 @@ extends Node2D
 
 export var spike_height = 40
 export var min_holes = 3
-export var max_holes = 7
+export var max_holes = 5
 
 var spike_scene = preload("res://scenes/Spike.tscn")
 
@@ -59,6 +59,6 @@ func _on_Bird_wall_bumped(facing_right: bool):
 		spike.position.y = spike_y
 		
 		if facing_right:
-			spike.rotation = PI
+			spike.rotation = PI  # in radians
 		
 		$Spikes.add_child(spike)
