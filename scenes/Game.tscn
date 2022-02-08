@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://sprites/bird.png" type="Texture" id=1]
 [ext_resource path="res://scripts/BirdMovement.gd" type="Script" id=2]
 [ext_resource path="res://scripts/Wall.gd" type="Script" id=3]
 [ext_resource path="res://scripts/Root.gd" type="Script" id=4]
+[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/HUD.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 4, 300 )
@@ -71,6 +73,10 @@ position = Vector2( 8, 20 )
 [node name="RSpikeStartPos" type="Position2D" parent="."]
 position = Vector2( 440, 20 )
 
+[node name="HUD" parent="." instance=ExtResource( 5 )]
+script = ExtResource( 6 )
+
 [connection signal="game_over" from="Bird" to="." method="_on_Bird_game_over"]
 [connection signal="wall_bumped" from="Bird" to="." method="_on_Bird_wall_bumped"]
+[connection signal="wall_bumped" from="Bird" to="HUD" method="_on_Bird_wall_bumped"]
 [connection signal="screen_exited" from="Bird/VisibilityNotifier2D" to="Bird" method="_on_VisibilityNotifier2D_screen_exited"]
