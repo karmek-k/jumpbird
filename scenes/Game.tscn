@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://sprites/bird.png" type="Texture" id=1]
 [ext_resource path="res://scripts/BirdMovement.gd" type="Script" id=2]
 [ext_resource path="res://scripts/Wall.gd" type="Script" id=3]
 [ext_resource path="res://scripts/Root.gd" type="Script" id=4]
-[ext_resource path="res://scenes/Spike.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 4, 300 )
@@ -33,9 +32,6 @@ polygon = PoolVector2Array( 0, 0, 0, 600, 8, 600, 8, 0 )
 [node name="RWall" type="StaticBody2D" parent="Walls"]
 position = Vector2( 440, 0 )
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
 left_wall = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/RWall"]
@@ -65,8 +61,11 @@ scale = Vector2( 2, 2 )
 
 [node name="Spikes" type="Node2D" parent="."]
 
-[node name="Spike" parent="Spikes" instance=ExtResource( 5 )]
-visible = false
+[node name="LSpikeStartPos" type="Position2D" parent="."]
+position = Vector2( 8, 20 )
+
+[node name="RSpikeStartPos" type="Position2D" parent="."]
+position = Vector2( 440, 20 )
 
 [connection signal="game_over" from="Bird" to="." method="_on_Bird_game_over"]
 [connection signal="wall_bumped" from="Bird" to="." method="_on_Bird_wall_bumped"]
